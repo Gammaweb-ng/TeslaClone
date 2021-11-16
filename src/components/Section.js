@@ -1,20 +1,21 @@
 import React from 'react'
 import styled from "styled-components"
 
-function Section(){
+function Section({title, description, backgroundImg, leftBtnText, rightBtnText}){
+   
     return (
-        <Wrap>
+        <Wrap bgImage={backgroundImg}>
             <ItemText>
-                <h1>Model S</h1>
-                <p>Order Online for Touchless delivery</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
             </ItemText>
             <Buttons>
                 <ButtonGroup>
                     <LeftButton>
-                        Custom Order
+                        {leftBtnText}
                     </LeftButton>
                     <RightButton>
-                        Existing Inventory
+                        {rightBtnText}
                     </RightButton>
                 </ButtonGroup>
                 <DownArrow src="/images/down-arrow.svg" />
@@ -32,7 +33,8 @@ const Wrap = styled.div`
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    background-image: url('/images/model-s.jpg');
+    background-image: ${props => `url("/images/${props.bgImage}")`};
+    /* background-image: url('/images/benz-coupe.jpg'); */
     display:flex;
     flex-direction:column;
     justify-content:space-between; // vertical alignment
@@ -42,6 +44,14 @@ const Wrap = styled.div`
 const ItemText = styled.div`
     padding-top: 15vh;
     text-align: center;
+
+   && h1 {
+       color:#E9AA12;
+   }
+
+   && p{
+       color: #fff;
+   }
 `
 
 const Buttons = styled.div`
@@ -51,13 +61,16 @@ const Buttons = styled.div`
 const ButtonGroup = styled.div`
     display:flex;
     margin-bottom:30px;
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
 `
 
 const LeftButton = styled.div`
     background-color: rgba(23, 26, 32, 0.8);
     height:40px;
     width:256px;
-    color:#ffffff;
+    color:#E9AA12;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -70,12 +83,13 @@ const LeftButton = styled.div`
 `
 
 const RightButton = styled(LeftButton)`
-    background-color: #fff;
-    color: #000;
+    background-color: #E9AA12;
+    opacity: 0.65;
+    color: #fff;
 `
 
 const DownArrow = styled.img`
-    margin-top:20px;
     height:40px;
+    overflow-x:hidden;
     animation: animateDown infinite 1.5s;
 `

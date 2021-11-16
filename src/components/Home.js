@@ -5,7 +5,38 @@ import Section from './Section';
 function Home() {
     return (
         <Container>
-            <Section />
+            <Section 
+                title="Benz Coupe" 
+                description="Order Online for Touchless delivery"
+                backgroundImg="benz-coupe.jpg"
+                leftBtnText="Custom order"
+                rightBtnText="Existing inventory"
+            />
+
+            <Section 
+                title="Benz Astra" 
+                description="Order Online for Touchless delivery"
+                backgroundImg="benz-astra.jpg"
+                leftBtnText="Custom order"
+                rightBtnText="Existing inventory"
+            />
+
+            <Section 
+                title="Benz AMG" 
+                description="Order Online for Touchless delivery"
+                backgroundImg="benz-amg.jpg"
+                leftBtnText="Custom order"
+                rightBtnText="Existing inventory"
+            />
+
+             <Section 
+                title="C - Series" 
+                description="Order Online for Touchless delivery"
+                backgroundImg="c-series.jpg"
+                leftBtnText="Custom order"
+                rightBtnText="Existing inventory"
+            />
+            
         </Container>
     )
 }

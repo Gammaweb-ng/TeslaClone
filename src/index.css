@@ -8,7 +8,31 @@
 
 body{
     width: 100%;
+    overflow-x: hidden;
 }
+
+
+/* width */
+::-webkit-scrollbar{
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #E9AA12; 
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #333; 
+  }
 
 @keyframes animateDown {
     0%, 20%, 50%, 80%, 100%{
