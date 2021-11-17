@@ -36,6 +36,21 @@ function Home() {
                 leftBtnText="Custom order"
                 rightBtnText="Existing inventory"
             />
+
+            <Section
+                title="State of the Art Museum" 
+                description="Jaw dropping classic vehicles"
+                backgroundImg="museum.jpeg"
+                leftBtnText="Book for a Tour"
+                rightBtnText="Learn More"
+            />
+
+            <Section
+                title="Accessories" 
+                description=""
+                backgroundImg="headphone2.jpg"
+                leftBtnText="Shop now"
+            />
             
         </Container>
     )
