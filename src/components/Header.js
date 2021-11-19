@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 function Header() {
     return (
@@ -17,9 +18,22 @@ function Header() {
             <RightMenu>
                 <a href="">Shop</a>
                 <a href="">Account</a>
-
                 <CustomMenu/>
             </RightMenu>
+            <BurgerNav>
+                <CustomClose />
+                <li><a href="#">Existing Inventory</a></li> 
+                <li><a href="#">Used Inventory</a></li> 
+                <li><a href="#">Trade-In</a></li>
+                <li><a href="#">A - Class</a></li>
+                <li><a href="#">B - Class</a></li>
+                <li><a href="#">C - Class</a></li>
+                <li><a href="#">G - Class</a></li>
+                <li><a href="#">V - Class / eqv</a></li>
+                <li><a href="#">Mercedes - Maybach</a></li>
+                <li><a href="#">EQC - Offroader</a></li>
+            </BurgerNav>
+            
         </Container>
     )
 }
@@ -36,6 +50,7 @@ const Container = styled.div`
     top:0;
     left:0;
     right:0;
+    z-index:1;
 `
 
 const Menu = styled.div`
@@ -70,4 +85,33 @@ const RightMenu = styled.div`
 
 const CustomMenu = styled(MenuIcon)`
     cursor: pointer;
+`
+
+const CustomClose = styled(CloseIcon)`
+   
+`
+
+const BurgerNav = styled.div`
+    position: fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    background-color:#E9AA12;
+    width:300px;
+    z-index:16;
+    list-style: none;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    text-align:start;
+    text-transform: uppercase;
+    li{
+        padding: 15px 0;
+        border-bottom:1px solid rgba(0,0,0,0.2);
+        cursor: pointer;
+        a{
+            font-weight: 600;
+        }
+    }
+
 `

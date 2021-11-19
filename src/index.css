@@ -37,6 +37,10 @@ body{
   a{
       text-decoration: none;
   }
+/* 
+  li{
+      text-decoration: none;
+  } */
 
 @keyframes animateDown {
     0%, 20%, 50%, 80%, 100%{
