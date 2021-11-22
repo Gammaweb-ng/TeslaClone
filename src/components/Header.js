@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import Slide from 'react-reveal/Slide'
 
 function Header() {
+    const [burgerStatus, setBurgerStatus ] = useState(false);
+
     return (
         <Container>
             <a href="#">
@@ -15,24 +18,38 @@ function Header() {
                 <a href="#">Benz - AMG</a>
                 <a href="#">C - Series</a>
             </Menu>
+
+            {/* right menu (shop and hamburger menu) */}
+
             <RightMenu>
                 <a href="">Shop</a>
                 <a href="">Account</a>
-                <CustomMenu/>
+                <CustomMenu onClick={() => setBurgerStatus(true)}/>
             </RightMenu>
-            <BurgerNav>
-                <CustomClose />
-                <li><a href="#">Existing Inventory</a></li> 
-                <li><a href="#">Used Inventory</a></li> 
-                <li><a href="#">Trade-In</a></li>
-                <li><a href="#">A - Class</a></li>
-                <li><a href="#">B - Class</a></li>
-                <li><a href="#">C - Class</a></li>
-                <li><a href="#">G - Class</a></li>
-                <li><a href="#">V - Class / eqv</a></li>
-                <li><a href="#">Mercedes - Maybach</a></li>
-                <li><a href="#">EQC - Offroader</a></li>
+            <BurgerNav show={burgerStatus}>
+
+                {/* close div */}
+
+                <CloseWrapper>
+                    <CustomClose onClick={() => setBurgerStatus(false)}/>
+                </CloseWrapper>
+
+                {/* navigation */}
+
+                <Slide right>
+                    <li><a href="#">Existing Inventory</a></li> 
+                    <li><a href="#">Used Inventory</a></li> 
+                    <li><a href="#">Trade-In</a></li>
+                    <li><a href="#">A - Class</a></li>
+                    <li><a href="#">B - Class</a></li>
+                    <li><a href="#">C - Class</a></li>
+                    <li><a href="#">G - Class</a></li>
+                    <li><a href="#">V - Class / eqv</a></li>
+                    <li><a href="#">Mercedes - Maybach</a></li>
+                    <li><a href="#">EQC - Offroader</a></li>
+                </Slide>
             </BurgerNav>
+            {/* end of right menu (shop and hamburger menu) */}
             
         </Container>
     )
@@ -88,7 +105,13 @@ const CustomMenu = styled(MenuIcon)`
 `
 
 const CustomClose = styled(CloseIcon)`
-   
+    cursor: pointer;
+`
+
+const CloseWrapper = styled.div`
+    display:flex;
+    justify-content: flex-end;
+    
 `
 
 const BurgerNav = styled.div`
@@ -105,6 +128,9 @@ const BurgerNav = styled.div`
     flex-direction:column;
     text-align:start;
     text-transform: uppercase;
+    transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
+    transition: transform 0.2s ease-in;
+
     li{
         padding: 15px 0;
         border-bottom:1px solid rgba(0,0,0,0.2);
